@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>Spotify Web Playback SDK Template</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/style.css">
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    
+    <!-- Include the Web Playback SDK -->
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    
+    <!-- Include our Javascript -->
+    <script src="/public/script.js" defer></script>
+  </head>
+  
+  <body class="container">
+    <section class="not-approved">
+      <h1 class="mt-5">Hello!</h1>
+      <h4 class="mt-3">This app will allow you to "Shuffle All" through your all your tracks in all your spotify playlists. Just like you used to do with an ipod.</h4>
+      <p class="mt-3">In order to do this, you'll have to allow us access to your spotify account: But I promise, we're not even storing your data in a database so we're certainly not going to do anything with it. It's just to create a good shufflin' time. Clicking the button below will bring you to the approval page for spotify- but once you approve it'll bring you right back here and get you up and running :)</p>
+      <h4 class="mt-5">Presently only works on desktop!</h4>
+      <button class="btn btn-primary mt-5 btn-lg" onclick="allowAccess();">Let's Get Started</button>
+    </section>
+    
+    <section class="approved d-none loading">
+      <div class="loading-icon">
+        <div class="flame"></div>
+        <div class="flame"></div>
+        <div class="flame"></div>
+        <div class="flame"></div>
+        <p>Loading...</p>
+      </div>
+      <h1>Let's Get Shuffling:</h1>
+      <div class="iPod">
+        <h3 id="current-playlist-source"></h3>
+        <div class="album-art"><img id="current-track"/></div>
+        <div class="track-details">
+          <h3 id="current-track-name"></h3>
+          <h3 id="current-artist-name"></h3>
+          <h3 id="current-album-name"></h3>
+        </div>
+      </div>
+      <button class="btn btn-primary mt-3 btn-lg" onclick="playNextSong();">Start Shuffling</button>
+      <select id="device-options" class="d-none" onchange="changeDevice()"></select>
+      
+    </section>
+  </body>
+  
+</html>
